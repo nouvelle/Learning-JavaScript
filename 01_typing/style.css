@@ -1,3 +1,8 @@
+body {
+    font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
+    background-color: rgb(166, 198, 255);
+    text-align: center;
+}
 .keys {
     display: flex;
     align-items: center;
@@ -6,13 +11,15 @@
 }
 .key {
     width: 70px;
-    height: 80px;
+    height: 70px;
     background: #ccc;
+    box-shadow: #333 3px 3px;
     margin: 15px;
-    transition: all 0.3s ease;
+    padding-top: 10px;
+    transition: all 0.2s ease;
 }
 .playing {
-    border: 3px solid skyblue;
-    background: skyblue;
+    border: 3px solid rgb(183, 218, 255);
+    background: rgb(181, 200, 220);
     transform: scale(1.2);
 }
