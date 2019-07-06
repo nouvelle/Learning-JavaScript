@@ -6,4 +6,4 @@
 ### ページ
 
 - [01_typing](https://nouvelle.github.io/Learning-JavaScript/01_typing/) 
-
+- [02_clock](https://nouvelle.github.io/Learning-JavaScript/02_clock/) 
