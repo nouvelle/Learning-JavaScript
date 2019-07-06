@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Variavles</title>
+</head>
+<body>
+    <h3 class="text">Change with <span class="cl">CSS</span></h3>
+    <div class="control">
+        <label for="padding">Padding:</label>
+        <input id="padding" type="range" name="padding" min="5" max="50" value="30" data-sizing="px">
+        <label for="blur">Blur:</label>
+        <input id="blur" type="range" name="blur" min="0" max="10" value="1" data-sizing="px">
+        <label for="color">Color:</label>
+        <input id="color" type="color" name="color" value="#f8dce0">
+    </div>
+    <img class="img" src="https://images.unsplash.com/photo-1528997924595-a5ab2bf194db?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=450&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500">
+    <script>
+        function handleUpdate(){
+            const suffix = this.dataset.sizing || "";
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        }
+
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(input => input.addEventListener("mousemove", handleUpdate));
+        inputs.forEach(input => input.addEventListener("change", handleUpdate));
+        </script>
+    <style>
+        :root {
+            --color: #f8dce0;
+            --padding: 30px;
+            --blur: 1px;
+        }
+        body {
+            font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
+            background-color: antiquewhite;
+            text-align: center;
+        }
+        .cl {
+            color: var(--color);
+        }
+        .text {
+            font-size: 42px;
+            color: #999;
+        }
+        .control {
+            margin: 25px;
+        }
+        .img {
+            margin: 0 auto;
+            padding: var(--padding);
+            background: var(--color);
+            filter: blur(var(--blur));
+        }
+        input {
+            width: 100px;
+        }
+    </style>
+</body>
+</html>
