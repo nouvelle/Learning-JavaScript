@@ -14,5 +14,5 @@
 
 各ページで利用している画像は、下記から拝借させていただいております。ありがとうございます m(_ _)m  
 
-- [ぴよたそ](https://hiyokoyarou.com/) ゆるさがたまりません！！
-- [Unsplash](https://unsplash.com/) おしゃれな画像がいっぱい！
+- [ぴよたそ](https://hiyokoyarou.com/)  : ゆるさがたまりません！！
+- [Unsplash](https://unsplash.com/)  : おしゃれな画像がいっぱい！
