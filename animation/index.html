@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>panel</title>
+  <style>
+    body {
+        font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
+        background-color: rgba(250, 235, 215, 0.448);
+    }
+    .flex {
+      display: flex;
+    }
+    .wrap {
+      margin: 5px 10px;
+    }
+    .rain {
+      animation: rain 2s steps(2) infinite;
+      background: url("img/rain.png") no-repeat;
+      width: 370px;
+      height: 320px;
+    }
+    @keyframes rain {
+      0% {background-position-x: 0; }
+      100% {background-position-x: -740px; }
+    }
+    .rains {
+      position: relative;
+    }
+    img {
+      animation: rains 2s linear infinite;
+      opacity: 0;
+      top: 0;
+    }
+    .rain2 {
+      animation-delay: 1s;
+      position: absolute;
+      display: block;
+    }
+    @keyframes rains {
+      0% {opacity: 0; }
+      100% {opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flex">
+    <div class="wrap">
+      <div class="memo">↓animation-timing-function に steps(n) を指定</div>
+      <div class="rain"></div>
+    </div>
+    <div class="wrap">
+      <div class="memo">↓animation-timing-function に linear を指定</div>
+      <div class="rains">
+        <img class="rain1" src="img/rain1.png">
+        <img class="rain2" src="img/rain2.png">
+      </div>
+    </div>
+  </div>
+<script>
+    
+</script>
+</body>
+</html>

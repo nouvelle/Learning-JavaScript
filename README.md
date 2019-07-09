@@ -9,6 +9,8 @@
 - [Clock](https://nouvelle.github.io/Learning-JavaScript/02_Clock/) 
 - [CSSVariables](https://nouvelle.github.io/Learning-JavaScript/03_CSSVariables/) 
 - [Panels](https://nouvelle.github.io/Learning-JavaScript/05_Panels/) 
+- [Animation](https://nouvelle.github.io/Learning-JavaScript/animation/) 
+![animation image](https://nouvelle.github.io/Learning-JavaScript/animation/img/animation.mp4)
 
 ### 利用画像
 
