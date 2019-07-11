@@ -10,6 +10,7 @@
 - [CSSVariables](https://nouvelle.github.io/Learning-JavaScript/03_CSSVariables/) 
 - [Panels](https://nouvelle.github.io/Learning-JavaScript/05_Panels/) 
 - [Animation](https://nouvelle.github.io/Learning-JavaScript/animation/) 
+- [Text Flow](https://nouvelle.github.io/Learning-JavaScript/text_flow/) 
 
 ![animation image](https://nouvelle.github.io/Learning-JavaScript/animation/img/animation.gif)
 
