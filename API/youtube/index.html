@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Google APIs JavaScript Client by google</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        box-sizing: border-box;
+        background: #f8dce0;
+        font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+      }
+      #wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .list {
+        flex: 1;
+        margin-bottom: 5px;
+        list-style-type: decimal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="page-header">mayuko's YouTube channel</h1>
+    <div id="wrap">
+      <h3>Long Version</h3>
+      <div class="list long"></div>
+      <h3>Medium Version</h3>
+      <div class="list medium"></div>
+      <h3>Short Version</h3>
+      <div class="list short"></div>
+    </div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      const searchUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet";
+      const key = "__YOUR_API_KEY__";
+      let channelId = "UCEDkO7wshcDZ7UZo17rPkzQ";
+      let order = "date";
+      let maxResults = 10;
+      let type = "video";
+      const videolength = ["long", "medium", "short"];
+
+      const apiUrlUrl = searchUrl
+             + "&key=" + key
+             + "&channelId=" + channelId
+             + "&order=" + order
+             + "&maxResults=" + maxResults
+             + "&type=" + type;
+      const longUrl = apiUrlUrl + "&videoDuration=" + videolength[0];
+      const mediumUrl = apiUrlUrl + "&videoDuration=" + videolength[1];
+      const shortUrl = apiUrlUrl + "&videoDuration=" + videolength[2];
+
+      function getData(url, cls){
+        let listVideo = [];
+        fetch(url)
+          .then(response => {
+            if(response.ok){
+              return response.json();
+            }else{
+              return Promise.reject(new Error('エラーです'));
+            }
+          })
+          .then(data => {
+            for(let i=0; i<data.items.length; i++){
+              if(data.items[i].id.videoId && data.items[i].id.kind == "youtube#video"){
+                listVideo.push(data.items[i].snippet.title);
+              }
+            }
+            displayData(listVideo, cls)
+          });
+        return listVideo;
+      }
+      
+      function displayData(data, cls){
+        let html = data.map(item => {
+          return `
+            <li>${item}</li>
+          `;
+        }).join("");
+        document.querySelector("." +cls).innerHTML = html;
+      }
+
+      let longVer = getData(longUrl, "long");
+      let mediumVer = getData(mediumUrl, "medium");
+      let shortVer = getData(shortUrl, "short");
+
+    </script>
+  </body>
+</html>

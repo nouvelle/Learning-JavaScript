@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax</title>
+  <style>
+    body {
+        box-sizing: border-box;
+        background: #f8dce0;
+        font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+    }
+    #holiday {
+        margin: 10px auto;
+        padding: 10px;
+        width: 75%;
+        background: #fff;
+        border: 10px solid #f7f7f7;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+    <div id="holiday"></div>
+<script>
+    const holiday = document.getElementById('holiday');
+
+    //祝日一覧API
+    fetch("https://holidays-jp.github.io/api/v1/date.json")
+    .then(response=>{
+        if(response.ok){
+            return response.text();
+        }else{
+            return Promise.reject(new Error('エラーです'));
+        }
+    })
+    .then(response =>{
+        var objRes = JSON.parse(response);
+        console.log(objRes);
+        Object.keys(objRes).forEach(function(key){
+            holiday.innerHTML += objRes[key] + "は" + key + "<br>";
+        });
+    })
+
+</script>
+</body>
+</html>

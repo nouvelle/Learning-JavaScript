@@ -77,8 +77,60 @@
             <li>Or A stare</li>
         </ul>
     </form>
+    <!-- <div id="holiday"></div> -->
 <script>
     const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    const cities = [];
+
+    fetch(endpoint)
+        .then(data => data.json())
+        .then(json => cities.push(...json));
+
+    function findMatch(word, cities) {
+        return cities.filter(place => {
+            const regex = new RegExp(word, 'gi');
+            return place.city.match(regex) || place.state.match(regex);
+        });
+    }
+
+    function displayMatches() {
+        const matchArray = findMatch(this.value, cities);
+        const html = matchArray.map(place => {
+            return `
+                <li>${place.city} <span>${place.state}</span></li>
+            `;
+        }).join("");
+        suggestions.innerHTML = html;
+        console.log(matchArray);
+
+    }
+
+    const searchInput = document.querySelector(".search");
+    const suggestions = document.querySelector(".suggest");
+
+    searchInput.addEventListener("change", displayMatches);
+    searchInput.addEventListener("keyup", displayMatches);
+
+
+    
+// var holiday = document.getElementById('holiday');
+
+// //祝日一覧API
+// fetch("https://holidays-jp.github.io/api/v1/date.json")
+// .then(response=>{
+//     if(response.ok){
+//         return response.text();
+//     }else{
+//         return Promise.reject(new Error('エラーです'));
+//     }
+// })
+// .then(response =>{
+//     var objRes = JSON.parse(response);
+//     console.log(objRes);
+//     Object.keys(objRes).forEach(function(key){
+//         holiday.innerHTML += objRes[key] + "は" + key + "<br>";
+//     });
+// })
 
 </script>
 </body>
