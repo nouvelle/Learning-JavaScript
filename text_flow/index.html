@@ -1,67 +1,202 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>text flow</title>
-  <style>
-    body {
+  <head>
+    <meta charset="UTF-8" />
+    <title>text flow</title>
+    <style>
+      body {
         box-sizing: border-box;
-        background: #000;
-        font-family: Hannotate TC,osaka,"MS PGothic",arial,helvetica,sans-serif;
-        font-size: 20px;
+        font-family: Hannotate TC, osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        font-size: 24px;
         font-weight: 200;
-    }
-    .wrap {
-        color: #fefefe;
-        transform: perspective(300px) rotateX(24deg);
+        background: #000;
+        color: #ffc107;
+        background: url('./bg.jpg') center center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .wrap {
+        /* color: #fefefe; */
+        transform: perspective(300px) rotateX(25deg);
         position: absolute;
-        width: 18em;
+        width: 19em;
         height: 50em;
         bottom: 0;
         left: 50%;
+        /* left: 74%; */
         margin-left: -9em;
-        font-size: 350%;
+        font-size: 250%;
         font-weight: bold;
         text-align: justify;
         overflow: hidden;
         transform-origin: 50% 100%;
-    }
-    .wrap:after{
+      }
+
+      .wrap:after {
         position: absolute;
         content: ' ';
         left: 0;
         right: 0;
         top: 0;
         bottom: 60%;
-        background-image: -webkit-linear-gradient(top, rgba(0,0,0,3) 0%, transparent 100%);
+        background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%);
         pointer-events: none;
-    }
-    .text{
+      }
+
+      .text {
         position: absolute;
         top: 100%;
-        animation: scroll 50s linear 1s infinite;
-    }
-    @keyframes scroll {
-        0% { top: 100%; }
-        100% { top: -210%; }
-    }
-  </style>
-</head>
-<body>
+        animation: scroll 250s linear 4s;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .wait {
+        height: 150px;
+        /* background-color: white; */
+      }
+
+      @keyframes scroll {
+        0% {
+          top: 100%;
+        }
+
+        100% {
+          top: -210%;
+        }
+      }
+
+      h1 {
+        position: absolute;
+        width: 2.6em;
+        left: 45%;
+        top: 10%;
+        font-size: 10em;
+        text-align: center;
+        margin-left: -1.3em;
+        line-height: 0.7em;
+        letter-spacing: -0.05em;
+        color: #000;
+        text-shadow: -4px -4px 0 #ff0, 4px -4px 0 #ff0, -4px 4px 0 #ff0, 4px 4px 0 #ff0;
+        opacity: 0;
+        z-index: 1;
+        -webkit-animation: logo 8s ease-out 2.5s;
+        -moz-animation: logo 8s ease-out 2.5s;
+        -ms-animation: logo 8s ease-out 2.5s;
+        -o-animation: logo 8s ease-out 2.5s;
+        animation: logo 8s ease-out 2.5s;
+      }
+
+      @-webkit-keyframes logo {
+        0% {
+          -webkit-transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          -webkit-transform: scale(0.1);
+          opacity: 0;
+        }
+      }
+
+      @-moz-keyframes logo {
+        0% {
+          -moz-transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          -moz-transform: scale(0.1);
+          opacity: 0;
+        }
+      }
+
+      @-ms-keyframes logo {
+        0% {
+          -ms-transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          -ms-transform: scale(0.1);
+          opacity: 0;
+        }
+      }
+
+      @-o-keyframes logo {
+        0% {
+          -o-transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          -o-transform: scale(0.1);
+          opacity: 0;
+        }
+      }
+
+      @keyframes logo {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: scale(0.1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Code Chrysalis</h1>
     <div class="wrap">
-        <div class="text">
-            一日中楽しめるイタリアンベーカリー　プリンチ®
-            日本初の単独一号店「プリンチ 代官山T-SITE」を東京・代官山にオープン！
-            スターバックス(米国、NASDAQ: SBUX) とプリンチ®は、日本初の単独一号店「プリンチ 代官山T-SITE」を7月24日（水）に東京・代官山にオープンいたします。プリンチ®は、東京・中目黒に2019年2月にオープンした「スターバックス リザーブ® ロースタリー 東京」への日本初出店以来、本場のイタリアの食文化を存分に楽しめるイタリアンベーカリーとして、予想を大きく上回る反響で、大変多くのお客様に好評いただいており、その体験をより身近に、そして一日中楽しめるイタリアンベーカリーとして、さらに多くの皆様にお楽しみいただける店舗をつくりあげました。
-            
-            日本初の単独一号店となる「プリンチ 代官山T-SITE」は、一日中楽しめるイタリアンベーカリーとして、ブレックファスト、ランチ、カフェタイム、ディナータイムで様々なメニューを展開。ミラノ発祥のベーカリーであるプリンチ®が大切にする“職人たちの手仕事”、“本物へのこだわり”、“五感で味わう体験”をより身近に楽しんでいただく店舗として、代官山T-SITEに出店します。ご提供するメニューは、スターバックス リザーブ® ロースタリー 東京で大人気のコルネッティをはじめとしたパンのほか、ラザニア、サラダやピッツァに加え、この店舗でのみご提供するとっておきのデザートもご用意。また、アルコールとともに楽しむ「アペリティーボ」は夕方から楽しむイタリアならではのメニュー。一日を通してイタリアの食文化を存分に味わっていただけます。皆様のライフスタイルのひとつに、また、ここを訪れることが特別な楽しみとなることを目指してまいります。
-            
-            ■一日中楽しめるプリンチ®のメニュー
-            プリンチ®では、本場イタリアの味わいを届けるために、イタリアや日本などの厳選した食材を組み合わせ、約80種類ほどのプリンチ®オリジナルのレシピから時間帯に合わせた商品をご提供します。一日をはじめるブレックファストには、コーヒーとの相性が良い、サクサクとした歯触りが心地よいコルネッティや、ふっくらやわらかなブリオッシュなど、手作りのペストリーを豊富に取り揃えています。ランチタイムには、チャバッタに彩り豊かな、新鮮な野菜や素材をたっぷりと挟んだチャバッタ サンドイッチ ツナ＆レモン ケッパーなど、プリンチ®オリジナルのサンドイッチのほか、本場イタリアを味わうフォカッチャ ピッツァやラザニア、サラダなどをご用意しています。また、カフェタイムには、人気のデザートに加え、同店舗限定の目を引くスペシャルなデザートが登場します。さらに、「プリンチ 代官山T-SITE」では、仕事終わりなどの親しい仲間と過ごすひと時のおすすめとして、オレンジ風味の甘くてほろ苦いリキュール「アペロール」を使用した爽やかなカクテル「アペロール スプリッツ」に、片手で食べることができるスティックタイプのフォカッチャ ピッツァを合わせた、イタリアのライフスタイルを象徴するアペリティーボもお楽しみいただけます。プリンチ®では、これらの表情豊かなフードを、一日中作り立てでお届けします。
-            </div>
+      <div class="text">
+        <p class="wait"></p>
+        <p>Welcome to Code Chrysalis!!</p>
+        <p>みなさんは 入学試験、プリコースを無事終え、今日からいよいよImmersiveクラスが始まります。</p>
+        <p>今日から12週間、様々なことがみんなさんを待ち受けています。</p>
+        <p>
+          嬉しいこと、楽しいこと、サプライズ！！時にはフラストレーションが溜まって逃げ出したくなることもあるかもしれません。
+        </p>
+        <p>けど、そんな時は今の気持ちを思い出してください。</p>
+        <p>12週間後のみなさんに会えるのを私たちも心から楽しみにしています。</p>
+        <p></p>
+        <p class="center">Japanese Immersive 第１期</p>
+        <p>この記念すべき今日という日をみなさんと一緒に迎えることができて、スタッフ一同とても嬉しく思います。</p>
+        <p>May the Force be with you....</p>
+        <p class="right">4th May, 2020 Code Chrysalis</p>
+      </div>
     </div>
-<script>
-    
-</script>
-</body>
+    <audio src="" autoplay></audio>
+  </body>
 </html>
