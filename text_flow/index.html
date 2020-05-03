@@ -3,29 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>text flow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
     <style>
       body {
-        box-sizing: border-box;
-        font-family: Hannotate TC, osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        font-family: 'Noto Sans JP';
         font-size: 24px;
         font-weight: 200;
         background: #000;
+        box-sizing: border-box;
         color: #ffc107;
         background: url('./bg.jpg') center center;
         background-size: cover;
         width: 100%;
         height: 100%;
       }
-
-      .wrap {
-        /* color: #fefefe; */
+      #wrap {
+        font-family: 'Noto Sans JP';
         transform: perspective(300px) rotateX(25deg);
         position: absolute;
         width: 19em;
         height: 50em;
         bottom: 0;
         left: 50%;
-        /* left: 74%; */
         margin-left: -9em;
         font-size: 250%;
         font-weight: bold;
@@ -34,7 +34,7 @@
         transform-origin: 50% 100%;
       }
 
-      .wrap:after {
+      #wrap:after {
         position: absolute;
         content: ' ';
         left: 0;
@@ -45,9 +45,11 @@
         pointer-events: none;
       }
 
-      .text {
+      #textAnimation {
         position: absolute;
         top: 100%;
+      }
+      .text {
         animation: scroll 240s linear 4s;
       }
 
@@ -73,10 +75,11 @@
         }
       }
 
-      h1 {
+      #openingAnimation {
+        font-family: 'Ubuntu', sans-serif;
         position: absolute;
         width: 100%;
-        left: 35%;
+        left: 40%;
         top: -10%;
         font-size: 20em;
         text-align: center;
@@ -88,6 +91,8 @@
         text-shadow: -4px -4px 0 #ff0, 4px -4px 0 #ff0, -4px 4px 0 #ff0, 4px 4px 0 #ff0;
         opacity: 0;
         z-index: 1;
+      }
+      .title {
         -webkit-animation: logo 10s ease-out 2.5s;
         -moz-animation: logo 10s ease-out 2.5s;
         -ms-animation: logo 10s ease-out 2.5s;
@@ -174,13 +179,24 @@
           opacity: 0;
         }
       }
+      #btn {
+        width: 10%;
+        height: 10%;
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      #btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     </style>
   </head>
 
   <body>
-    <h1>Code Chrysalis</h1>
-    <div class="wrap">
-      <div class="text">
+    <h1 id="openingAnimation">Code Chrysalis</h1>
+    <div id="wrap">
+      <div id="textAnimation">
         <p class="wait"></p>
         <p class="center">Episode CCJ1</p>
         <p class="center">Welcome to Code Chrysalis!!</p>
@@ -198,6 +214,15 @@
         <p class="right">4th May, 2020 Code Chrysalis</p>
       </div>
     </div>
-    <audio src="" autoplay></audio>
+    <div id="btn"></div>
+    <script>
+      const btn = document.getElementById('btn');
+      const textAnimation = document.getElementById('textAnimation');
+      const openingAnimation = document.getElementById('openingAnimation');
+      btn.addEventListener('click', () => {
+        textAnimation.classList.add('text');
+        openingAnimation.classList.add('title');
+      });
+    </script>
   </body>
 </html>
